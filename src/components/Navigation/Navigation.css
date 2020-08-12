@@ -1,0 +1,24 @@
+.nav {
+  flex: 1;
+}
+
+.nav__list {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.nav__list>li {
+  margin-left: 15px;
+}
+
+.nav__link {
+  color: var(--color-white-gray);
+  text-transform: uppercase;
+  background: var(--color-black);
+  border-radius: var(--border-radius);
+}
+
+.nav__link:hover {
+  filter: brightness(80%);
+}
