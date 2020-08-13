@@ -28,11 +28,9 @@ const Register = () => {
         email,
         password,
       );
-      const userRef = await createUserProfile(user, { displayName: fullName }); // Fix this
-      console.log(userRef, ' from userRef');
+      await createUserProfile(user, { displayName: fullName });
       history.push('/');
     } catch (error) {
-      console.log(error.message);
       setError('auth', {
         message: error.message,
       });
