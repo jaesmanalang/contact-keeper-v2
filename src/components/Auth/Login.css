@@ -60,3 +60,15 @@
 .sign-up__link:hover {
   text-decoration: underline;
 }
+
+.error {
+  padding: 10px;
+  margin: 10px 0;
+  color: rgb(200, 50, 50);
+  background: rgba(228, 77, 77, 0.4);
+}
+
+.error-message {
+  display: flex;
+  align-items: flex-start;
+}

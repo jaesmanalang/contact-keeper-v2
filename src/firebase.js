@@ -18,6 +18,30 @@ const db = firebase.firestore();
 const auth = firebase.auth();
 const provider = new firebase.auth.GoogleAuthProvider();
 
-export { db, auth, provider };
+const createUserProfile = async (authUser, data) => {
+  if (!authUser) return;
+
+  const userRef = db.doc(`users/${authUser.uid}`);
+  const snapShot = await userRef.get();
+
+  if (!snapShot.exists) {
+    const { displayName, email } = authUser;
+    const dateCreated = new Date();
+    try {
+      await userRef.set({
+        displayName,
+        email,
+        dateCreated,
+        ...data,
+      });
+    } catch (error) {
+      console.log('error creating user', error.message);
+    }
+  }
+
+  return userRef;
+};
+
+export { db, auth, provider, createUserProfile };
 
 export default firebase;
