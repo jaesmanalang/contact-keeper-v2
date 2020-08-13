@@ -1,3 +1,4 @@
 import Header from './Header/Header';
+import Login from './Auth/Login';
 
-export { Header };
+export { Header, Login };

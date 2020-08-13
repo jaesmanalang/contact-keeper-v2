@@ -1,16 +1,12 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 import Navigation from '../Navigation/Navigation';
 import './Header.css';
+import Logo from '../Logo/Logo';
 
 const Header = () => {
-  const history = useHistory();
-
   return (
     <header className="header">
-      <h1 onClick={() => history.push('/')} className="logo">
-        Contact Keeper
-      </h1>
+      <Logo />
       <Navigation />
     </header>
   );
