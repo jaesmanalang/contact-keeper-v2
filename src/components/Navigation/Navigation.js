@@ -29,8 +29,8 @@ const NonAuthNav = () => (
 
 const AuthNav = ({ displayName }) => {
   const history = useHistory();
-  const name = displayName.split(' ');
-  const firstName = name[0];
+  // const name = displayName?.split(' ');
+  // const firstName = name[0];
 
   const handleSignOut = () => {
     auth.signOut();
@@ -40,7 +40,9 @@ const AuthNav = ({ displayName }) => {
   return (
     <ul className="nav__list">
       <li>
-        <p className="displayName">Hello, {firstName}</p>
+        <p className="displayName">
+          {displayName ? 'Hello, ' + displayName.split(' ')[0] + '!' : ''}
+        </p>
       </li>
       <li>
         <button onClick={handleSignOut} className="sign-out-btn">

@@ -8,7 +8,9 @@ const LandingPage = () => {
   return (
     <div>
       {currentUser ? (
-        <ContactList />
+        <div className="container">
+          <ContactList />
+        </div>
       ) : (
         <div className="welcome">
           <h1 className="main-heading">Welcome to Contact Keeper</h1>

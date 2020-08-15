@@ -1,4 +1,5 @@
 import React from 'react';
+import './ContactItem.css';
 
 const ContactItem = ({ name, number, type }) => {
   return (
