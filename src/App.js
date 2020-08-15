@@ -1,27 +1,28 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useContext } from 'react';
 import { Switch, Route, useLocation } from 'react-router-dom';
 import { Header } from './components';
 import LandingPage from './pages/LandingPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import { auth, createUserProfile } from './firebase';
+import { UserContext } from './context/user/context';
 
 function App() {
   const location = useLocation();
-  const [user, setUser] = useState(null);
+  const [currentUser, setCurrentUser] = useContext(UserContext);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async authUser => {
       if (authUser) {
         const userRef = await createUserProfile(authUser);
         userRef.onSnapshot(snapShot => {
-          setUser({
+          setCurrentUser({
             id: snapShot.id,
             ...snapShot.data(),
           });
         });
       } else {
-        setUser(null);
+        setCurrentUser(null);
       }
     });
 
@@ -34,7 +35,7 @@ function App() {
         <Header />
       )}
       <Switch>
-        {console.log(user, ' from render')}
+        {console.log(currentUser, ' from render')}
         <Route exact path="/" component={LandingPage} />
         <Route path="/login" component={LoginPage} />
         <Route path="/register" component={RegisterPage} />

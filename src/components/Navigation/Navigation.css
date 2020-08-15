@@ -22,3 +22,27 @@
 .nav__link:hover {
   filter: brightness(80%);
 }
+
+.displayName {
+  color: white;
+}
+
+.menu-btn {
+  background: red;
+}
+
+.sign-out-btn {
+  outline: none;
+  cursor: pointer;
+  padding: 12px 15px;
+  border: transparent;
+  color: var(--color-black);
+  border-radius: var(--border-radius);
+  transition: all .2s ease-in-out;
+}
+
+.sign-out-btn:hover {
+  background: var(--color-black);
+  color: white;
+  opacity: .8;
+}
