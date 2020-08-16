@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { UserContext } from '../context/user/context';
-import { ContactList } from '../components';
+import { ContactList, ContactForm } from '../components';
+import './LandingPage.css';
 
 const LandingPage = () => {
   const [currentUser] = useContext(UserContext);
@@ -9,7 +10,10 @@ const LandingPage = () => {
     <div>
       {currentUser ? (
         <div className="container">
-          <ContactList />
+          <div className="contact-wrapper">
+            <ContactForm />
+            <ContactList />
+          </div>
         </div>
       ) : (
         <div className="welcome">

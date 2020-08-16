@@ -37,12 +37,12 @@
   padding: 12px 15px;
   border: transparent;
   color: var(--color-black);
+  background: var(--color-black);
   border-radius: var(--border-radius);
   transition: all .2s ease-in-out;
+  color: white;
 }
 
 .sign-out-btn:hover {
-  background: var(--color-black);
-  color: white;
   opacity: .8;
 }

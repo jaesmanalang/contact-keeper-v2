@@ -13,12 +13,15 @@ const ContactList = () => {
       db.doc(`users/${currentUser.id}`)
         .collection('contacts')
         .onSnapshot(snapShot => {
-          const contacts = snapShot.docs.map(doc => {
-            return { id: doc.id, ...doc.data() };
-          });
-          setContacts(contacts);
+          setContacts(
+            snapShot.docs.map(doc => ({
+              id: doc.id,
+              ...doc.data(),
+            })),
+          );
         });
     }
+    // eslint-disable-next-line
   }, []);
 
   return (
